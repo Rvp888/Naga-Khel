@@ -17,28 +17,26 @@
     color: white;
     font-family: monospace;
     align-self: flex-start;
-    font-size: 39px;
+    font-size: 50px;
     padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+#sub-title {
+    font-size: 18px;
+    text-align: center;
+    color: rgb(213, 209, 209);
 }
 
 .stats {
     align-self: flex-start;
-}
-
-#scoreBox {
-    font-size: 39px;
+    padding: 20px 0;
+    font-size: 30px;
     font-weight: bold;
     font-family:monospace;
     color: white;
 }
-
-#hiscoreBox {
-    font-size: 39px;
-    font-weight: bold;
-    font-family:monospace;
-    color: white;
-}
-
 
 #board {
     background: linear-gradient(rgba(93, 94, 93, 0.877), rgba(162, 162, 158, 0.674));
