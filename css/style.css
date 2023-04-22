@@ -19,6 +19,8 @@
     display: grid;
     grid-template-columns: auto auto auto;
     grid-template-rows: auto auto;
+    /* margin: 0 5em 5em 0; */
+    margin-bottom: 1em;
 }
 
 .controls button {
@@ -121,4 +123,20 @@
     border-radius: 50%;
     height: 25px;
     width: 30px;
+}
+
+
+@media screen and (max-width: 360px) {
+    .controls button {
+        font-size: 2rem;
+        padding: 1rem;
+        width: 4rem;
+    }
+
+    .stats {
+        padding: 10px;
+        font-size: 1.5rem;
+        background-color: rgba(0, 0, 0, 0.686);
+        border-radius: 1rem;
+    }
 }
