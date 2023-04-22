@@ -4,7 +4,7 @@ const foodSound = new Audio("../music/food.mp3");
 const gameOverSound = new Audio("../music/gameover.mp3");
 const moveSound = new Audio("../music/move.mp3");
 const musicSound = new Audio("../music/Bg-music.mp3");
-let speed = 5;
+let speed = 3;
 let score = 0;
 let hiscoreval = 0;
 let lastPaintTime = 0;
@@ -87,9 +87,11 @@ function gameEngine() {
         snakeElement.style.gridRowStart = e.y;
         snakeElement.style.gridColumnStart = e.x;       
         if(index === 0){
-            snakeElement.classList.add('head');
+            snakeElement.classList.add('snakeHead');
+        }else if(index === snakeArr.length-1) {
+            snakeElement.classList.add('snakeTail');
         }else {
-            snakeElement.classList.add('snake');
+            snakeElement.classList.add('snakeBody');
         }
         board.appendChild(snakeElement);
     })
