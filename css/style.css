@@ -13,6 +13,36 @@
     align-items: center;
 }
 
+.controls {
+    align-self: flex-end;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto auto;
+}
+
+.controls button {
+    font-size: 3rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    width: 5rem;
+}
+
+.controls #up-key {
+    grid-area: 1/2/2/3;
+}
+.controls #left-key {
+    grid-area: 2/1/3/2;
+}
+.controls #down-key {
+    grid-area: 2/2/3/3;
+}
+.controls #right-key {
+    grid-area: 2/3/3/4;
+}
+
 #title {
     align-self: flex-start;
     display: flex;
