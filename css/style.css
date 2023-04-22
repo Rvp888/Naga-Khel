@@ -67,18 +67,21 @@
     border: 2px solid white;
     border-radius: 20%;
     transform: rotate(45deg);
+    z-index: 1;
 }
 
 .snakeBody {
     background: linear-gradient(rgb(244, 4, 4), rgb(19, 14, 15));
     border: 2px solid white;
     border-radius: 50%;
+    z-index: 1;
 }
 
 .snakeTail {
     background: linear-gradient(rgb(62, 62, 62), rgb(19, 14, 15));
     border: 3px solid white;
     border-radius: 50%;
+    z-index: 1;
 }
 
 .food {
