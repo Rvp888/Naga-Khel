@@ -121,8 +121,6 @@
     background: radial-gradient(rgb(237, 190, 20), rgb(237, 63, 20), rgb(233, 83, 28));
     box-shadow: 0 0 5px 2px rgb(240, 228, 220);
     border-radius: 50%;
-    height: 25px;
-    width: 30px;
 }
 
 
@@ -139,4 +137,5 @@
         background-color: rgba(0, 0, 0, 0.686);
         border-radius: 1rem;
     }
+
 }
