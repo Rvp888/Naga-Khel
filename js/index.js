@@ -27,7 +27,7 @@ function main(ctime) {
 
 function isCollide(snake) {
     // If you bump into yourself
-    for (let i = 1; i < snakeArr.length; i++) {
+    for (let i = 1; i < snake.length; i++) {
         if(snake[i].x === snake[0].x && snake[i].y === snake[0].y){
             return true;
         }
@@ -47,7 +47,7 @@ function gameEngine() {
         gameOverSound.play();
         musicSound.pause();
         inputDir = {x: 0, y: 0};
-        alert("Game Over. Press any key to play again!");
+        alert("Game Over. Press 'Enter' to play again!");
         snakeArr = [{x: 13, y: 15}];
         score = 0;
         scoreSpan.innerHTML = score;
