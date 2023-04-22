@@ -48,6 +48,10 @@
     color: goldenrod;
 }
 
+#scoreSpan, #hiscoreSpan {
+    color: white;
+}
+
 #board {
     background: linear-gradient(rgba(93, 94, 93, 0.877), rgba(162, 162, 158, 0.674));
     width: 90vmin;
