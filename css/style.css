@@ -123,7 +123,16 @@
 }
 
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 370px) {
+
+    .body {
+        flex-direction: column;
+    }
+
+    .controls {
+        align-self: center;
+    }
+
     .controls button {
         font-size: 2rem;
         padding: 1rem;
@@ -135,10 +144,15 @@
     }
 
     .stats {
+        align-self: center;
         padding: 10px;
         font-size: 1rem;
         background-color: rgba(0, 0, 0, 0.686);
         border-radius: 1rem;
+    }
+
+    #title {
+        align-self: center;
     }
 
     #main-title {
