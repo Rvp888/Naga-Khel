@@ -148,6 +148,8 @@ window.addEventListener('keydown', e => {
 
 
 
+// on-screen game controls
+
 window.addEventListener('click', e => {
     inputDir = {x: 0, y: 1} // Start the game
     musicSound.play();
