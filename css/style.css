@@ -9,14 +9,23 @@
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
 }
 
+#title {
+    color: white;
+    font-family: monospace;
+    align-self: flex-start;
+    font-size: 39px;
+    padding: 20px 0;
+}
+
+.stats {
+    align-self: flex-start;
+}
+
 #scoreBox {
-    position: absolute;
-    top: 9px;
-    right: 200px;
     font-size: 39px;
     font-weight: bold;
     font-family:monospace;
@@ -24,9 +33,6 @@
 }
 
 #hiscoreBox {
-    position: absolute;
-    top: 59px;
-    right: 115px;
     font-size: 39px;
     font-weight: bold;
     font-family:monospace;
