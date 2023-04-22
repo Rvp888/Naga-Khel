@@ -5,7 +5,7 @@
 
 .body {
     background: url("../image/snake.jpg");
-    min-height: 100vh;
+    height: 100vh;
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     display: flex;
@@ -23,17 +23,16 @@
 
 #main-title {
     color: white;  
-    font-size: 50px;   
+    font-size: 3rem;   
     text-decoration: underline;
     text-underline-offset: 5px;
-    text-decoration-color: rgb(3, 3, 3);
     text-decoration-color: goldenrod;
     text-decoration-style: none;
     text-decoration-thickness: 3px;
 }
 
 #sub-title {
-    font-size: 18px;
+    font-size: 1rem;
     text-align: center;
     color: rgb(213, 209, 209);
     text-decoration: none;
@@ -42,7 +41,7 @@
 .stats {
     align-self: flex-start;
     padding: 20px 0;
-    font-size: 30px;
+    font-size: 2rem;
     font-weight: bold;
     font-family:monospace;
     color: goldenrod;
@@ -55,7 +54,7 @@
 #board {
     background: linear-gradient(rgba(93, 94, 93, 0.877), rgba(162, 162, 158, 0.674));
     width: 90vmin;
-    height: 92vmin;
+    height: 90vmin;
     border: 10px solid rgb(22, 22, 22);
     display: grid;
     grid-template-rows: repeat(18, 1fr);
@@ -65,21 +64,20 @@
 
 .snakeHead {
     background: linear-gradient(rgb(62, 62, 62), rgb(19, 14, 15));
-    transform: scale(1.02);
-    border: 0.25vmin solid white;
+    border: 2px solid white;
     border-radius: 20%;
     transform: rotate(45deg);
 }
 
 .snakeBody {
     background: linear-gradient(rgb(244, 4, 4), rgb(19, 14, 15));
-    border: 0.25vmin solid white;
+    border: 2px solid white;
     border-radius: 50%;
 }
 
 .snakeTail {
     background: linear-gradient(rgb(62, 62, 62), rgb(19, 14, 15));
-    border: 0.30vmin solid white;
+    border: 3px solid white;
     border-radius: 50%;
 }
 
