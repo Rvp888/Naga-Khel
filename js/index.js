@@ -17,7 +17,6 @@ let food = {x: 6, y: 7}
 
 // Game Functions
 function main(ctime) {
-    // console.log("ctime", ctime);
     window.requestAnimationFrame(main);
     if((ctime - lastPaintTime)/1000 < 1/speed){
         return;
@@ -42,7 +41,7 @@ function isCollide(snake) {
 }
 
 function gameEngine() {
-    // musicSound.play();
+    musicSound.play();
     // Part 1: Updating the snake array & Food
     if(isCollide(snakeArr)){
         gameOverSound.play();
