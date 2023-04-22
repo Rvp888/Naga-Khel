@@ -137,4 +137,15 @@
         border-radius: 1rem;
     }
 
+    #main-title {
+        font-size: 2rem;   
+        text-underline-offset: 3px;
+        text-decoration-thickness: 2px;
+    }
+
+    #sub-title {
+        font-size: 0.8rem;
+        text-align: center;
+    }
+
 }
