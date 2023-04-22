@@ -72,7 +72,7 @@
 
 .stats {
     align-self: flex-start;
-    margin: 0.2em 0 0 0;
+    margin: 0 0 0 0;
     font-size: 2rem;
     font-weight: bold;
     font-family:monospace;
