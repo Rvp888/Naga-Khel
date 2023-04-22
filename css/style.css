@@ -9,6 +9,7 @@
     background-size: 100vw 100vh;
     background-repeat: no-repeat;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
 }
