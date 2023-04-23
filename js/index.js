@@ -153,39 +153,50 @@ window.addEventListener('keydown', e => {
 // on-screen game controls
 
 window.addEventListener('click', e => {
-    inputDir = {x: 0, y: -1} // Start the game
-    musicSound.play();
-    moveSound.play();
-    switch (e.target.id) {
-        case "up-key":
-            inputDir.x = 0;
-            inputDir.y = -1;
-            break;
-
-        case "down-key":
-            inputDir.x = 0;
-            inputDir.y = 1;
-            break;
-
-        case "left-key":
-            inputDir.x = -1;
-            inputDir.y = 0;
-            break;
-
-        case "right-key":
-            inputDir.x = 1;
-            inputDir.y = 0;
-            break;
-
-        default:
-            break;
-    }
-});
-
-window.addEventListener("click", () => {
     if(message.style.display === 'flex'){
         inputDir = {x: 0, y: 0};
         musicSound.pause();
         moveSound.pause();
+        if(e.target.id === 'playAgainBtn'){
+            message.style.display = 'none';
+            return;
+        }
     }
-})
+    else {
+        inputDir = {x: 0, y: -1} // Start the game
+        musicSound.play();
+        moveSound.play();
+        switch (e.target.id) {
+            case "up-key":
+                inputDir.x = 0;
+                inputDir.y = -1;
+                break;
+
+            case "down-key":
+                inputDir.x = 0;
+                inputDir.y = 1;
+                break;
+
+            case "left-key":
+                inputDir.x = -1;
+                inputDir.y = 0;
+                break;
+
+            case "right-key":
+                inputDir.x = 1;
+                inputDir.y = 0;
+                break;
+
+            default:
+                break;
+        }
+    }
+});
+
+// window.addEventListener("click", () => {
+//     if(message.style.display === 'flex'){
+//         inputDir = {x: 0, y: 0};
+//         musicSound.pause();
+//         moveSound.pause();
+//     }
+// })
