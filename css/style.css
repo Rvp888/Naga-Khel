@@ -68,7 +68,7 @@
     align-self: flex-start;
     display: flex;
     flex-direction: column;
-    margin: 0.5em 0;
+    margin: 0.5em;
     font-family: monospace;
 }
 
@@ -143,6 +143,7 @@
 
 #message {
     position: absolute;
+    height: 100vh;
     top: 0;
     right: 0;
     bottom: 0;
@@ -185,54 +186,176 @@
 }
 
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 1280px) {
+    #title {
+        position: absolute;
+        top: 0.5em;
+        left: 2em;
+    }
+    #board {
+        margin: auto;
+    }
+    .stats {
+        position: absolute;
+        top: 0.2em;
+        right: 1em;
+    }
+    .controls {
+        position: absolute;
+        bottom: 2rem;
+        right: 2rem;
+    }
+}
 
+
+@media screen and (max-width: 920px) {
+    #title {
+        position: absolute;
+        top: 0.5em;
+        left: 2em;
+    }
+    #main-title {
+        font-size: 5rem;   
+        text-underline-offset: 10px;
+        text-decoration-thickness: 5px;
+    }
+    #sub-title {
+        font-size: 2rem;
+    }
+    #board {
+        margin: auto auto 20rem auto ;
+    }
+    .stats {
+        position: absolute;
+        top: 0.8em;
+        right: 1em;
+        font-size: 2.5rem;
+    }
+    .controls {
+        position: absolute;
+        bottom: 2rem;
+        right: auto;
+    }
+    .controls button {
+        font-size: 4.2rem;
+        padding: 1rem;
+        width: 8rem;
+    }
+}
+
+
+@media screen and (max-width: 820px) {
+    #main-title {
+        font-size: 4.5rem;   
+        text-underline-offset: 10px;
+        text-decoration-thickness: 5px;
+    }
+    #sub-title {
+        font-size: 1.8rem;
+    }
+    #board {
+        margin: 9.5rem auto 20rem auto ;
+    }
+    .stats {
+        font-size: 2rem;
+    }
+    .controls button {
+        font-size: 3.5rem;
+        padding: 1rem;
+        width: 7rem;
+    }
+}
+
+@media screen and (max-width: 770px) {
+    #main-title {
+        font-size: 3.5rem;   
+        text-underline-offset: 10px;
+        text-decoration-thickness: 5px;
+    }
+    #sub-title {
+        font-size: 1.5rem;
+    }
+    #board {
+        margin: 7rem auto 20rem auto ;
+    }
+    .stats {
+        font-size: 1.8rem;
+    }
+    .controls {
+        bottom: 1rem;
+    }
+    .controls button {
+        font-size: 3.3rem;
+        padding: 0.5rem;
+        width: 5.5rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #main-title {
+        font-size: 2.2rem;   
+        text-underline-offset: 5px;
+        text-decoration-thickness: 2px;
+    }
+    #sub-title {
+        font-size: 0.9rem;
+    }
+    #board {
+        margin: 4rem auto 20rem auto ;
+    }
+    .stats {
+        font-size: 1.2rem;
+    }
+    .controls button {
+        font-size: 2.2rem;
+        width: 4rem;
+    }
+}
+
+@media screen and (max-width: 420px) {
     .body {
         flex-direction: column;
+        justify-content: space-around;
     }
-
-    .controls {
+    #title {
+        position: static;
         align-self: center;
+    }
+    #main-title {
+        font-size: 3.5rem;   
+        text-underline-offset: 7px;
+        text-decoration-thickness: 3px;
+    }
+    #sub-title {
+        font-size: 1.3rem;
+    }
+    #board {
+        margin: 0 ;
         position: static;
     }
-
-    .controls button {
-        font-size: 2rem;
-        padding: 1rem;
-        width: 4rem;
-        height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
     .stats {
+        position: static;
         align-self: center;
-        padding: 10px;
-        font-size: 1rem;
+        padding: 0.6em 1em;
+        font-size: 1.5rem;
         background-color: rgba(0, 0, 0, 0.686);
         border-radius: 1rem;
         margin: 0;
     }
-
-    #title {
+    .controls {
+        position: static;
         align-self: center;
     }
-
-    #main-title {
-        font-size: 2rem;   
-        text-underline-offset: 3px;
-        text-decoration-thickness: 2px;
+    .controls button {
+        font-size: 2.5rem;
+        padding: 1rem;
+        width: 5rem;
+        height: 5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
-
-    #sub-title {
-        font-size: 0.8rem;
-        text-align: center;
-    }
-
     #message {
         font-size: 5rem;
-        height: 100vh;
     }
-
 }
