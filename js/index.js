@@ -47,7 +47,8 @@ function gameEngine() {
         gameOverSound.play();
         musicSound.pause();
         inputDir = {x: 0, y: 0};
-        alert("Game Over. Press 'Enter' to play again!");
+        // alert("Game Over. Press 'Enter' to play again!");
+        message.style.display = 'flex';
         snakeArr = [{x: 13, y: 15}];
         score = 0;
         scoreSpan.innerHTML = score;
@@ -117,7 +118,8 @@ else {
 
 window.requestAnimationFrame(main);
 window.addEventListener('keydown', e => {
-    inputDir = {x: 0, y: 1} // Start the game
+    message.style.display = 'none';
+    inputDir = {x: 0, y: -1} // Start the game
     musicSound.play();
     moveSound.play();
     switch (e.key) {
@@ -151,7 +153,7 @@ window.addEventListener('keydown', e => {
 // on-screen game controls
 
 window.addEventListener('click', e => {
-    inputDir = {x: 0, y: 1} // Start the game
+    inputDir = {x: 0, y: -1} // Start the game
     musicSound.play();
     moveSound.play();
     switch (e.target.id) {
@@ -179,3 +181,11 @@ window.addEventListener('click', e => {
             break;
     }
 });
+
+window.addEventListener("click", () => {
+    if(message.style.display === 'flex'){
+        inputDir = {x: 0, y: 0};
+        musicSound.pause();
+        moveSound.pause();
+    }
+})

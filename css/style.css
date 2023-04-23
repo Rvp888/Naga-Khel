@@ -149,12 +149,38 @@
     left: 0;
     background-color: rgba(0, 0, 0, 0.778);
     color: white;
-    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: monospace;
     font-size: 8rem;
+    display: none;
+    z-index: 2;
+}
+
+#playAgainBtn {
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+    outline: none;
+    border: 0.1px solid rgb(111, 110, 110);
+    box-shadow: 0 3px rgb(182, 178, 178);
+}
+
+#playAgainBtn:hover {
+    background-color: rgb(182, 178, 178);
+    color: black;
+    border: 1px solid black;
+    transition: background-color 1s, color 0.5s;
+    box-shadow: 0 3px;
+}
+
+#playAgainBtn:active {
+    transform: translateY(2px);
+    box-shadow: 0 1px;
 }
 
 
