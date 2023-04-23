@@ -117,8 +117,18 @@ else {
 }
 
 window.requestAnimationFrame(main);
+
 window.addEventListener('keydown', e => {
-    message.style.display = 'none';
+    if(message.style.display === 'flex'){
+        inputDir = {x: 0, y: 0};
+        musicSound.pause();
+        moveSound.pause();
+        if(e.key === 'Enter'){
+            message.style.display = 'none';
+            return;
+        }
+        return;
+    }
     inputDir = {x: 0, y: -1} // Start the game
     musicSound.play();
     moveSound.play();
