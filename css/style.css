@@ -230,4 +230,8 @@
         text-align: center;
     }
 
+    #message {
+        font-size: 5rem;
+    }
+
 }
