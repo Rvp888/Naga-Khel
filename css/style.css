@@ -302,6 +302,7 @@
     }
     #board {
         margin: 4rem auto 20rem auto ;
+        border: 5px solid;
     }
     .stats {
         font-size: 1.2rem;
