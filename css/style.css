@@ -35,6 +35,13 @@
     width: 5rem;
 }
 
+.controls button:hover {
+    background-color: rgb(182, 178, 178);
+    color: black;
+    border: 2px solid black;
+    transition: background-color 1s, color 0.5s;
+}
+
 .controls #up-key {
     grid-area: 1/2/2/3;
 }
