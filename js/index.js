@@ -4,7 +4,7 @@ const foodSound = new Audio("../music/food.mp3");
 const gameOverSound = new Audio("../music/gameover.mp3");
 const moveSound = new Audio("../music/move.mp3");
 const musicSound = new Audio("../music/Bg-music.mp3");
-let speed = 3;
+let speed = 10;
 let score = 0;
 let hiscoreval = 0;
 let lastPaintTime = 0;
@@ -17,11 +17,13 @@ let food = {x: 6, y: 7}
 
 // Game Functions
 function main(ctime) {
+    // console.log(ctime);
     window.requestAnimationFrame(main);
     if((ctime - lastPaintTime)/1000 < 1/speed){
         return;
     }
     lastPaintTime = ctime;
+    // console.log(lastPaintTime);
     gameEngine();
 }
 
@@ -42,16 +44,15 @@ function isCollide(snake) {
 
 function gameEngine() {
     // musicSound.play();
-    // Part 1: Updating the snake array & Food
+// Part 1: Updating the snake array & Food
     if(isCollide(snakeArr)){
         gameOverSound.play();
         musicSound.pause();
         inputDir = {x: 0, y: 0};
-        // alert("Game Over. Press 'Enter' to play again!");
         message.style.display = 'flex';
         snakeArr = [{x: 13, y: 15}];
         score = 0;
-        scoreSpan.innerHTML = score;
+        // scoreSpan.innerHTML = score;
     }
 
     // If you have eaten the food, increment the score and regenerate the food
@@ -120,16 +121,14 @@ window.requestAnimationFrame(main);
 
 window.addEventListener('keydown', e => {
     if(message.style.display === 'flex'){
-        inputDir = {x: 0, y: 0};
-        musicSound.pause();
-        moveSound.pause();
         if(e.key === 'Enter'){
             message.style.display = 'none';
+            scoreSpan.innerHTML = score;
             return;
         }
         return;
     }
-    inputDir = {x: 0, y: -1} // Start the game
+    inputDir = {x: 0, y: -1} // Start the game (move the snake)
     musicSound.play();
     moveSound.play();
     switch (e.key) {
@@ -164,12 +163,9 @@ window.addEventListener('keydown', e => {
 
 window.addEventListener('click', e => {
     if(message.style.display === 'flex'){
-        inputDir = {x: 0, y: 0};
-        musicSound.pause();
-        moveSound.pause();
         if(e.target.id === 'playAgainBtn'){
             message.style.display = 'none';
-            return;
+            scoreSpan.innerHTML = score;
         }
     }
     else {
@@ -203,10 +199,3 @@ window.addEventListener('click', e => {
     }
 });
 
-// window.addEventListener("click", () => {
-//     if(message.style.display === 'flex'){
-//         inputDir = {x: 0, y: 0};
-//         musicSound.pause();
-//         moveSound.pause();
-//     }
-// })
