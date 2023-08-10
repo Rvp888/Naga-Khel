@@ -13,17 +13,16 @@ let snakeArr = [
 ]
 let food = {x: 6, y: 7}
 
-
+let hiscore = JSON.parse(localStorage.getItem("hiscore")) || 0;
+hiscoreSpan.innerHTML = hiscore;
 
 // Game Functions
 function main(ctime) {
-    // console.log(ctime);
     window.requestAnimationFrame(main);
     if((ctime - lastPaintTime)/1000 < 1/speed){
         return;
     }
     lastPaintTime = ctime;
-    // console.log(lastPaintTime);
     gameEngine();
 }
 
@@ -52,17 +51,17 @@ function gameEngine() {
         message.style.display = 'flex';
         snakeArr = [{x: 13, y: 15}];
         score = 0;
-        // scoreSpan.innerHTML = score;
     }
 
     // If you have eaten the food, increment the score and regenerate the food
     if(snakeArr[0].y === food.y && snakeArr[0].x === food.x){
         foodSound.play();
         score += 1;
-        if(score > hiscoreval){
-            hiscoreval = score;
-            localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
-            hiscoreSpan.innerHTML = hiscoreval;
+        if(score > hiscore){
+            hiscore = score;
+            localStorage.setItem("hiscore", JSON.stringify(hiscore));
+            console.log("inside if", hiscore);
+            hiscoreSpan.innerHTML = hiscore;
         }
         scoreSpan.innerHTML = score;
         snakeArr.unshift({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y})
@@ -82,6 +81,7 @@ function gameEngine() {
     snakeArr[0].y += inputDir.y;
 
     // Part 2: Disply the snake and food
+
     // Disply the snake
     board.innerHTML = "";
     snakeArr.forEach((e, index) => {
@@ -97,6 +97,7 @@ function gameEngine() {
         }
         board.appendChild(snakeElement);
     })
+
     // Disply the food
     foodElement = document.createElement('div');
     foodElement.style.gridRowStart = food.y;
@@ -106,16 +107,6 @@ function gameEngine() {
 }
 
 
-// Main logic starts here
-let hiscore = localStorage.getItem("hiscore");
-if (hiscore === null){
-    hiscoreval = 0;
-    localStorage.setItem("hiscore", JSON.stringify(hiscoreval));
-}
-else {
-    hiscoreval = JSON.parse(hiscore);
-    hiscoreSpan.innerHTML = hiscore;
-}
 
 window.requestAnimationFrame(main);
 
