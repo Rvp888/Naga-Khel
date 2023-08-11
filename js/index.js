@@ -1,10 +1,11 @@
 // Game constants & Variables
+let frame;
 let inputDir = {x: 0, y: 0};
 const foodSound = new Audio("../music/food.mp3");
 const gameOverSound = new Audio("../music/gameover.mp3");
 const moveSound = new Audio("../music/move.mp3");
 const musicSound = new Audio("../music/Bg-music.mp3");
-let speed = 10;
+let speed = 4;
 let score = 0;
 let hiscoreval = 0;
 let lastPaintTime = 0;
@@ -18,7 +19,7 @@ hiscoreSpan.innerHTML = hiscore;
 
 // Game Functions
 function main(ctime) {
-    window.requestAnimationFrame(main);
+    frame = window.requestAnimationFrame(main);
     if((ctime - lastPaintTime)/1000 < 1/speed){
         return;
     }
@@ -42,15 +43,16 @@ function isCollide(snake) {
 }
 
 function gameEngine() {
-    // musicSound.play();
 // Part 1: Updating the snake array & Food
     if(isCollide(snakeArr)){
+        window.cancelAnimationFrame(frame);
         gameOverSound.play();
         musicSound.pause();
         inputDir = {x: 0, y: 0};
         message.style.display = 'flex';
-        snakeArr = [{x: 13, y: 15}];
+        // snakeArr = [{x: 13, y: 15}];
         score = 0;
+        return;
     }
 
     // If you have eaten the food, increment the score and regenerate the food
@@ -60,11 +62,10 @@ function gameEngine() {
         if(score > hiscore){
             hiscore = score;
             localStorage.setItem("hiscore", JSON.stringify(hiscore));
-            console.log("inside if", hiscore);
             hiscoreSpan.innerHTML = hiscore;
         }
         scoreSpan.innerHTML = score;
-        snakeArr.unshift({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y})
+        snakeArr.push({x: snakeArr[0].x + inputDir.x, y: snakeArr[0].y + inputDir.y});
         let a = 4;
         let b = 14;
         let c = 4;
@@ -108,46 +109,48 @@ function gameEngine() {
 
 
 
-window.requestAnimationFrame(main);
+frame = window.requestAnimationFrame(main);
 
 window.addEventListener('keydown', e => {
     if(message.style.display === 'flex'){
         if(e.key === 'Enter'){
+            snakeArr = [{x: 13, y: 15}];
             message.style.display = 'none';
             scoreSpan.innerHTML = score;
-            return;
+            frame = window.requestAnimationFrame(main);
         }
         return;
     }
-    inputDir = {x: 0, y: -1} // Start the game (move the snake)
-    musicSound.play();
-    moveSound.play();
-    switch (e.key) {
-        case "ArrowUp":
-            inputDir.x = 0;
-            inputDir.y = -1;
-            break;
+    else if (e.key === 'ArrowUp' || e.key === 'ArrowDown' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
+        musicSound.play();
+        moveSound.play();
+        switch (e.key) {
+            case "ArrowUp":
+                inputDir.x = 0;
+                inputDir.y = -1;
+                break;
 
-        case "ArrowDown":
-            inputDir.x = 0;
-            inputDir.y = 1;
-            break;
+            case "ArrowDown":
+                inputDir.x = 0;
+                inputDir.y = 1;
+                break;
 
-        case "ArrowLeft":
-            inputDir.x = -1;
-            inputDir.y = 0;
-            break;
+            case "ArrowLeft":
+                inputDir.x = -1;
+                inputDir.y = 0;
+                break;
 
-        case "ArrowRight":
-            inputDir.x = 1;
-            inputDir.y = 0;
-            break;
+            case "ArrowRight":
+                inputDir.x = 1;
+                inputDir.y = 0;
+                break;
 
-        default:
-            break;
+            default:
+                break;
+        }
     }
+    
 });
-
 
 
 // on-screen game controls
@@ -155,12 +158,13 @@ window.addEventListener('keydown', e => {
 window.addEventListener('click', e => {
     if(message.style.display === 'flex'){
         if(e.target.id === 'playAgainBtn'){
+            snakeArr = [{x: 13, y: 15}];
             message.style.display = 'none';
             scoreSpan.innerHTML = score;
+            frame = window.requestAnimationFrame(main);
         }
     }
-    else {
-        inputDir = {x: 0, y: -1} // Start the game
+    else if (e.target.id === 'up-key' || e.target.id === 'down-key' || e.target.id === 'left-key' || e.target.id === 'right-key') {
         musicSound.play();
         moveSound.play();
         switch (e.target.id) {
