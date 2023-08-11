@@ -1,5 +1,5 @@
 // Game constants & Variables
-let frame;
+let frame = window.requestAnimationFrame(main);
 let inputDir = {x: 0, y: 0};
 const foodSound = new Audio("../music/food.mp3");
 const gameOverSound = new Audio("../music/gameover.mp3");
@@ -50,7 +50,6 @@ function gameEngine() {
         musicSound.pause();
         inputDir = {x: 0, y: 0};
         message.style.display = 'flex';
-        // snakeArr = [{x: 13, y: 15}];
         score = 0;
         return;
     }
@@ -109,15 +108,10 @@ function gameEngine() {
 
 
 
-frame = window.requestAnimationFrame(main);
-
 window.addEventListener('keydown', e => {
     if(message.style.display === 'flex'){
         if(e.key === 'Enter'){
-            snakeArr = [{x: 13, y: 15}];
-            message.style.display = 'none';
-            scoreSpan.innerHTML = score;
-            frame = window.requestAnimationFrame(main);
+            window.location.reload();
         }
         return;
     }
@@ -158,10 +152,7 @@ window.addEventListener('keydown', e => {
 window.addEventListener('click', e => {
     if(message.style.display === 'flex'){
         if(e.target.id === 'playAgainBtn'){
-            snakeArr = [{x: 13, y: 15}];
-            message.style.display = 'none';
-            scoreSpan.innerHTML = score;
-            frame = window.requestAnimationFrame(main);
+            window.location.reload();
         }
     }
     else if (e.target.id === 'up-key' || e.target.id === 'down-key' || e.target.id === 'left-key' || e.target.id === 'right-key') {
