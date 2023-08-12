@@ -26,13 +26,13 @@ function main(ctime) {
 }
 
 function isCollide(snake) {
-  // If you bump into yourself
+  // If snake bump into itself
   for (let i = 1; i < snake.length; i++) {
     if (snake[i].x === snake[0].x && snake[i].y === snake[0].y) {
       return true;
     }
   }
-  // If you bump into the wall
+  // If snake bump into the wall
   if (
     snake[0].x >= 19 ||
     snake[0].x <= 0 ||
@@ -46,50 +46,12 @@ function isCollide(snake) {
 }
 
 function gameEngine() {
-  // Part 1: Updating the snake array & Food
-  if (isCollide(snakeArr)) {
-    window.cancelAnimationFrame(frame);
-    gameOverSound.play();
-    musicSound.pause();
-    inputDir = { x: 0, y: 0 };
-    message.style.display = "flex";
-    score = 0;
-    return;
-  }
-
-  // If you have eaten the food, increment the score and regenerate the food
-  if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
-    foodSound.play();
-    score += 1;
-    if (score > hiscore) {
-      hiscore = score;
-      localStorage.setItem("hiscore", JSON.stringify(hiscore));
-      hiscoreSpan.innerHTML = hiscore;
-    }
-    scoreSpan.innerHTML = score;
-    snakeArr.push({
-      x: snakeArr[0].x + inputDir.x,
-      y: snakeArr[0].y + inputDir.y,
-    });
-    let a = 2;
-    let b = 18;
-    let c = 2;
-    let d = 18;
-    food = {
-      x: Math.round(a + (b - a) * Math.random()),
-      y: Math.round(c + (d - c) * Math.random()),
-    };
-  }
-
   // Moving the snake
   for (let i = snakeArr.length - 2; i >= 0; i--) {
     snakeArr[i + 1] = { ...snakeArr[i] };
   }
-
   snakeArr[0].x += inputDir.x;
   snakeArr[0].y += inputDir.y;
-
-  // Part 2: Disply the snake and food
 
   // Disply the snake
   board.innerHTML = "";
@@ -113,7 +75,46 @@ function gameEngine() {
   foodElement.style.gridColumnStart = food.x;
   foodElement.classList.add("food");
   board.appendChild(foodElement);
+
+  // If snake eaten the food, increase snake length, increment the score and regenerate the food
+  if (snakeArr[0].y === food.y && snakeArr[0].x === food.x) {
+    foodSound.play();
+    snakeArr.unshift({
+      x: snakeArr[0].x + inputDir.x,
+      y: snakeArr[0].y + inputDir.y,
+    });
+
+    score += 1;
+    if (score > hiscore) {
+      hiscore = score;
+      localStorage.setItem("hiscore", JSON.stringify(hiscore));
+      hiscoreSpan.innerHTML = hiscore;
+    }
+    scoreSpan.innerHTML = score;
+
+    let a = 2;
+    let b = 18;
+    let c = 2;
+    let d = 18;
+    food = {
+      x: Math.round(a + (b - a) * Math.random()),
+      y: Math.round(c + (d - c) * Math.random()),
+    };
+  }
+
+  // If snake collides
+  if (isCollide(snakeArr)) {
+    window.cancelAnimationFrame(frame);
+    gameOverSound.play();
+    musicSound.pause();
+    inputDir = { x: 0, y: 0 };
+    message.style.display = "flex";
+    score = 0;
+    return;
+  }
 }
+
+// Game Controls by Keyboard
 
 window.addEventListener("keydown", (e) => {
   if (message.style.display === "flex") {
@@ -156,7 +157,7 @@ window.addEventListener("keydown", (e) => {
   }
 });
 
-// on-screen game controls
+// On-Screen Game Controls
 
 window.addEventListener("click", (e) => {
   if (message.style.display === "flex") {

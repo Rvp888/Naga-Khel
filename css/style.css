@@ -164,6 +164,15 @@
 .food {
   background-image: url("https://cdn.pixabay.com/photo/2016/03/31/19/38/amphibian-1295172_640.png");
   background-size: 100% 100%;
+  animation-name: Food;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes Food {
+  0% {
+    transform: translateY(10px);
+  }
 }
 
 #message {
