@@ -5,7 +5,7 @@ const foodSound = new Audio("../music/food.mp3");
 const gameOverSound = new Audio("../music/gameover.mp3");
 const moveSound = new Audio("../music/move.mp3");
 const musicSound = new Audio("../music/Bg-music.mp3");
-let speed = 4;
+let speed = 3;
 let score = 0;
 let hiscoreval = 0;
 let lastPaintTime = 0;
@@ -34,9 +34,9 @@ function isCollide(snake) {
   }
   // If you bump into the wall
   if (
-    snake[0].x >= 18 ||
+    snake[0].x >= 19 ||
     snake[0].x <= 0 ||
-    snake[0].y >= 18 ||
+    snake[0].y >= 19 ||
     snake[0].y <= 0
   ) {
     return true;
@@ -71,10 +71,10 @@ function gameEngine() {
       x: snakeArr[0].x + inputDir.x,
       y: snakeArr[0].y + inputDir.y,
     });
-    let a = 4;
-    let b = 14;
-    let c = 4;
-    let d = 14;
+    let a = 2;
+    let b = 18;
+    let c = 2;
+    let d = 18;
     food = {
       x: Math.round(a + (b - a) * Math.random()),
       y: Math.round(c + (d - c) * Math.random()),
