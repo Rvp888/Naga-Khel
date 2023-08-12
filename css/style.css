@@ -162,11 +162,8 @@
 }
 
 .food {
-  /* background: radial-gradient(rgb(237, 190, 20), rgb(237, 63, 20), rgb(233, 83, 28)); */
   background-image: url("https://cdn.pixabay.com/photo/2016/03/31/19/38/amphibian-1295172_640.png");
   background-size: 100% 100%;
-  /* box-shadow: 0 0 5px 2px rgb(240, 228, 220); */
-  /* border-radius: 50%; */
 }
 
 #message {
